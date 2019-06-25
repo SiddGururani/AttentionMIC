@@ -1,0 +1,15 @@
+attention model
+55336 params
+python train_attention_multiruns.py --num_epochs 250 --batch_size 128 --id decisionlevelsingleattention_128_3_0.6_lr0.0005_noannealing_res --loss_type BCE --lr 0.0005 --dropout_rate 0.6 --hidden_size 128 --emb_layers 3 --log_dir ./log/ISMIR2019/ --model_type attention
+
+DNN normal
+986772 params
+python train_attention_multiruns.py --num_epochs 100 --batch_size 128 --id BaselineDNN_3layer_lr0.0001_noannealing_dropout0.5--loss_type BCE --lr 0.0001 --log_dir ./log/ISMIR2019/ --model_type DNN
+
+DNN instance wise: 0.7968719535502186 f1 macro
+52116 params
+python train_attention_multiruns.py --num_epochs 100 --batch_size 128 --id BaselineDNN_T_3layer_res_lr0.0005_noannealing_dropout0.5 --loss_type BCE --lr 0.0005 --log_dir ./log/ISMIR2019/ --model_type DNN_T
+
+RNN bidirectional:
+226068 params
+python train_attention_multiruns.py --num_epochs 100 --batch_size 128 --id BaselineRNN_2_lr0.0005_noannealing_dropout0.5 --loss_type BCE --lr 0.0005 --log_dir ./log/ISMIR2019/ --model_type RNN
